@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- General styles -->
+	<link rel="stylesheet" href="CSS/style.css">
+	<!-- Google font style-->
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
+
+	<title>Ing.Ernesto Van Veacker</title>
+</head>
+<body>
+
+# Pregunta #1
+Sabemos de las ecuaciones de maxwell que: \
+
+$$\nabla \times \vec{E} = -jw\vec{B}=-jw\mu\vec{H}$$
+Sacando el rotor 
+$$\nabla \times \nabla \times \vec{E} = -jw\mu\nabla \times\vec{H} = \nabla ( \nabla \cdot \vec{E} ) - \nabla^2 \vec{E}$$
+Tambien sabemos que:
+$$ \nabla \times \vec{H} = \sigma \vec{E} + jw \varepsilon \vec{E} $$
+$$ \nabla (\nabla \cdot \vec{E}) - \nabla ^2 \vec{E} = -jw\mu(jw\varepsilon + \sigma)\vec{E} = (w^2\mu\varepsilon + jw\mu\sigma)\vec{E}$$
+Como no hay cargas se tiene que $\nabla \cdot \vec{E} = \rho$, entonces:
+$$ - \nabla ^2 {E} = (w^2\mu\varepsilon - jw\mu\sigma)\vec{E}$$
+Lo cual esta en el dominio del tiempo \ 
+
+
+Dominio del tiempo
+$$-(\frac{\partial^2 \vec{E}}{\partial x^2} + \frac{\partial^2 \vec{E}}{\partial y^2} + \frac{\partial^2 \vec{E}}{\partial z^2}) = \frac{-1}{c^2} \frac{\partial^2 \vec{E}}{\partial t^2} - \mu\sigma \frac{\partial{E}}{\partial t}$$
+Lo cual implica que:
+$$\frac{\partial^2 \vec{E}}{\partial x^2} + \frac{\partial^2 \vec{E}}{\partial y^2} + \frac{\partial^2 \vec{E}}{\partial z^2} - \mu\sigma \frac{\partial{E}}{\partial t}  - \frac{1}{c^2} \frac{\partial^2 \vec{E}}{\partial t^2} = 0$$
+Para el campo magnetico:
+$$ \nabla \times \nabla \times \vec{H} = \nabla (\nabla \cdot \vec{H}) - \nabla ^2 \vec{H} = (\sigma + jw\varepsilon)\nabla \times \vec{E}$$
+como $\nabla \cdot \vec{B} = 0$ y el medio es isotropo $\nabla \cdot \vec{H}=0$
+$$- \nabla^2 \vec{H} = -(\sigma + j\varepsilon)jw\mu\vec{H}$$
+$$- \nabla^2 \vec{H} = w^2\mu\varepsilon\vec{H}-jw\sigma\mu\vec{H}$$
+Lo cual en el dominio es en el dominio del tiempo
+
+$$ \frac{\partial^2 \vec{H}}{\partial x^2} + \frac{\partial^2 \vec{H}}{\partial y^2} + \frac{\partial^2 \vec{H}}{\partial z^2} - \frac{1}{c^2} \frac{\partial^2 \vec{H}}{\partial t^2} - \sigma \mu \frac{\partial \vec{H}}{\partial t} = 0 $$
+
+# Pregunta #2:
+Usando la ecuacion de laplace:
+$$ \nabla^2 V = 0 \Rightarrow \frac{\partial^2 V}{\partial x^2} + \frac{\partial^2 V}{\partial y^2} + \frac{\partial^2 V}{\partial z^2} = 0
+$$
+condiciones de forntera
+$$V(a,y,z)=V(x,0,z)=V(x,y,c)=0$$
+$$V(x,b,z)=V_o cos(\frac{3\pi x}{2a})$$
+En z = 0
+$$\frac{\partial V}{\partial z} = 0 $$
+En x = 0
+$$\frac{\partial V}{\partial x} = 0 $$
+El problema es de Dirichelt dadas las condiciones de frontera \
+Por separacion de variables $V_d(X,Y,Z) = X(x)Y(y)Z(z)$
+
+$$Y(y)Z(z)\frac{d^2X(x)}{dx^2} + X(x)Z(z)\frac{d^2Y(y)}{dy^2}+ X(x)Y(y)\frac{d^2Z(z)}{dz^2} = 0$$
+Dividimos toda la ecuacion entre X(x)Y(y)Z(z)
+$$ \frac{1}{X(x)} \frac{d^2X(x)}{dx^2} + \frac{1}{Y(y)} \frac{d^2Y(y)}{dy^2}+\frac{1}{Z(z)} \frac{d^2Z(z)}{dz^2} = 0$$
+Los autovalores deben cumplir
+$$ -k_x^2 - k_z^2 + k_y^2 = 0$$
+$$\frac{d^2X(x)}{dx^2} = -k_x^2 X(x)$$
+$$\frac{d^2Y(y)}{dy^2} = k_y^2 Y(y)$$
+$$\frac{d^2Z(z)}{dz^2} = -k_z^2 Z(z)$$
+Las soluciones son: \
+$$X(x) = A\sin(x k_x) + B \cos(x k_x)$$
+$$Y(y) = A\sinh(y k_y) + B \cosh(y k_y)$$
+$$Z(z) = E\sin(z k_z) + F\cos(z k_z) $$
+$$ X(x) \to Normal $$
+$$  Y(y) \to Hiperbolica $$
+$$  Z(z) \to Normal $$
+Por las condiciones de forntera
+$$V(a,y,z) = 0 \Longrightarrow k_x = \frac{(2l+1)\pi}{2a}$$
+$$V(x,0,z) = 0 \Longrightarrow D=0$$
+En z=0
+$$\frac{\partial V}{\partial z} = 0 \rightarrow k_z[E\cos(zk_z)-F\sin(zk_z)]=0 \Longrightarrow E=0$$
+En x=0
+$$\frac{\partial V}{\partial x} = 0 \rightarrow k_x[E\cos(xk_x)-F\sin(xk_x)]=0 \Longrightarrow A=0$$
+$$V(x,y,c)=0 \Longrightarrow k_z = \frac{(2n+1)\pi}{2c} \Longrightarrow n=0$$
+$$V(x,y,z)= \sum_{l=0}^\infty \sum_{n=0}^\infty B_{n,d} \cos\left(\frac{(2n+1)\pi}{2a}\right)\cosh\left(y\ k_y\right)\cos\left(\frac{(2n+1)\pi z}{2c}\right)$$
+$$V(x,b,z)=V_0 \cos\left(\frac{3\pi x}{2a}\right) \Longrightarrow l=1 \ \wedge \ k_y = \sqrt{k_x^2 + k_y^2} $$
+$$ k_y = \sqrt{\frac{9\pi^2}{4a^2} + \frac{\pi^2}{4c^2}} = \frac{\pi}{2} \sqrt{\frac{9}{a^2} +  \frac{1}{c^2}}$$
+$$V_0 = B_{n,d,m}\sinh(bk_y)\cos\left(\frac{z\pi}{2c}\right)$$
+$$B_{n,d,m}=\frac{V_0}{\sinh(bk_y)\cos\left(\frac{z\pi}{2c}\right)}$$
+$$V(x,y,z)=\frac{V_0 \cos\left(\frac{3\pi x}{2a}\right)\sinh\left(\frac{\pi}{2}y\sqrt{\frac{9}{a^2}+\frac{1}{c^2}}\right)\cos(\frac{\pi}{2}\frac{z}{c})}{\sinh\left(\frac{\pi}{2}b\sqrt{\frac{9}{a^2}+\frac{1}{c^2}}\right)}$$
+
+$$\left .\frac{\partial V}{\partial t}\right|_{z=0} = 0$$
+
+
+
+
+
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
